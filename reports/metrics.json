@@ -1,0 +1,500 @@
+{
+  "n_clients": 23976,
+  "n_features": 22,
+  "default_rate": 0.2210960960960961,
+  "n_train": 19180,
+  "n_test": 4796,
+  "features": [
+    "education",
+    "age",
+    "limit_bal",
+    "pay_1",
+    "pay_2",
+    "pay_3",
+    "pay_4",
+    "pay_5",
+    "pay_6",
+    "max_delay",
+    "n_delay_months",
+    "n_paid_duly",
+    "n_no_use",
+    "delay_trend",
+    "util_1",
+    "util_avg",
+    "util_max",
+    "bill_change",
+    "n_overlimit",
+    "paid_to_limit",
+    "paid_1_to_limit",
+    "pay_ratio_avg"
+  ],
+  "cv": [
+    {
+      "model": "LogReg",
+      "cv_roc_auc": 0.7532,
+      "cv_auc_std": 0.0095,
+      "cv_gini": 0.5063,
+      "cv_ks": 0.4036,
+      "cv_pr_auc": 0.5067
+    },
+    {
+      "model": "Scorecard (WoE+LogReg)",
+      "cv_roc_auc": 0.7633,
+      "cv_auc_std": 0.0079,
+      "cv_gini": 0.5267,
+      "cv_ks": 0.4017,
+      "cv_pr_auc": 0.529
+    },
+    {
+      "model": "RandomForest",
+      "cv_roc_auc": 0.7803,
+      "cv_auc_std": 0.0079,
+      "cv_gini": 0.5607,
+      "cv_ks": 0.4264,
+      "cv_pr_auc": 0.5498
+    },
+    {
+      "model": "LightGBM",
+      "cv_roc_auc": 0.7804,
+      "cv_auc_std": 0.0098,
+      "cv_gini": 0.5609,
+      "cv_ks": 0.4279,
+      "cv_pr_auc": 0.5525
+    },
+    {
+      "model": "LightGBM (tuned)",
+      "cv_roc_auc": 0.7832,
+      "cv_auc_std": 0.0077,
+      "cv_gini": 0.5664,
+      "cv_ks": 0.4333,
+      "cv_pr_auc": 0.5548
+    }
+  ],
+  "best_params": {
+    "subsample": 0.7,
+    "reg_lambda": 5,
+    "num_leaves": 16,
+    "n_estimators": 400,
+    "min_child_samples": 20,
+    "learning_rate": 0.01,
+    "colsample_bytree": 0.7
+  },
+  "holdout": {
+    "LogReg": {
+      "roc_auc": 0.7601807755242211,
+      "gini": 0.5203615510484423,
+      "ks": 0.42065876126217117,
+      "pr_auc": 0.5204001189653404,
+      "brier": 0.1390506838514348,
+      "log_loss": 0.4425543418510081
+    },
+    "Scorecard": {
+      "roc_auc": 0.7760797543533595,
+      "gini": 0.552159508706719,
+      "ks": 0.42040018585107675,
+      "pr_auc": 0.5427192306904602,
+      "brier": 0.13563865879342607,
+      "log_loss": 0.4331835839917343
+    },
+    "LightGBM_raw": {
+      "roc_auc": 0.7899132863318654,
+      "gini": 0.5798265726637308,
+      "ks": 0.4526604985657145,
+      "pr_auc": 0.5686575155525259,
+      "brier": 0.1318844220890909,
+      "log_loss": 0.4219342444363038
+    },
+    "LightGBM_calibrated": {
+      "roc_auc": 0.7907950688861056,
+      "gini": 0.5815901377722112,
+      "ks": 0.4523928326128237,
+      "pr_auc": 0.5701694777850919,
+      "brier": 0.1316689182614387,
+      "log_loss": 0.4218818690358171
+    }
+  },
+  "decile_table": [
+    {
+      "decile": 1,
+      "n": 480,
+      "defaults": 343,
+      "avg_pd": 0.7219,
+      "default_rate": 0.7146,
+      "lift": 3.2332,
+      "cum_capture": 0.3236
+    },
+    {
+      "decile": 2,
+      "n": 480,
+      "defaults": 221,
+      "avg_pd": 0.4326,
+      "default_rate": 0.4604,
+      "lift": 2.0832,
+      "cum_capture": 0.5321
+    },
+    {
+      "decile": 3,
+      "n": 479,
+      "defaults": 120,
+      "avg_pd": 0.2733,
+      "default_rate": 0.2505,
+      "lift": 1.1335,
+      "cum_capture": 0.6453
+    },
+    {
+      "decile": 4,
+      "n": 480,
+      "defaults": 89,
+      "avg_pd": 0.1898,
+      "default_rate": 0.1854,
+      "lift": 0.8389,
+      "cum_capture": 0.7292
+    },
+    {
+      "decile": 5,
+      "n": 479,
+      "defaults": 78,
+      "avg_pd": 0.1629,
+      "default_rate": 0.1628,
+      "lift": 0.7368,
+      "cum_capture": 0.8028
+    },
+    {
+      "decile": 6,
+      "n": 480,
+      "defaults": 69,
+      "avg_pd": 0.1404,
+      "default_rate": 0.1438,
+      "lift": 0.6504,
+      "cum_capture": 0.8679
+    },
+    {
+      "decile": 7,
+      "n": 479,
+      "defaults": 53,
+      "avg_pd": 0.1135,
+      "default_rate": 0.1106,
+      "lift": 0.5006,
+      "cum_capture": 0.9179
+    },
+    {
+      "decile": 8,
+      "n": 480,
+      "defaults": 36,
+      "avg_pd": 0.0888,
+      "default_rate": 0.075,
+      "lift": 0.3393,
+      "cum_capture": 0.9519
+    },
+    {
+      "decile": 9,
+      "n": 479,
+      "defaults": 25,
+      "avg_pd": 0.0694,
+      "default_rate": 0.0522,
+      "lift": 0.2361,
+      "cum_capture": 0.9755
+    },
+    {
+      "decile": 10,
+      "n": 480,
+      "defaults": 26,
+      "avg_pd": 0.036,
+      "default_rate": 0.0542,
+      "lift": 0.2451,
+      "cum_capture": 1.0
+    }
+  ],
+  "ablation_protected": {
+    "auc_without": 0.7899132863318654,
+    "auc_with": 0.7901312068199264
+  },
+  "psi": {
+    "score_train_vs_test": 0.00139664260225061,
+    "top_features": {
+      "pay_1": 0.0011421341237149042,
+      "n_delay_months": 6.495705839445764e-05,
+      "pay_3": 0.0003448332449020831,
+      "pay_4": 0.00012939316056363335,
+      "pay_5": 0.00011534578395087968,
+      "pay_6": 0.0004671942033320235,
+      "delay_trend": 0.0011488090959247638,
+      "limit_bal": 0.001928798195401096
+    }
+  },
+  "shap_top": {
+    "pay_1": 0.3332,
+    "max_delay": 0.2443,
+    "limit_bal": 0.1818,
+    "n_delay_months": 0.1266,
+    "util_avg": 0.0736,
+    "util_max": 0.0727,
+    "util_1": 0.0678,
+    "paid_to_limit": 0.0526,
+    "pay_ratio_avg": 0.044,
+    "bill_change": 0.0412
+  },
+  "business": {
+    "bootstrap_model_vs_rule": {
+      "profit_diff_model_vs_rule_mean": 608624.7141333332,
+      "ci95": [
+        45921.18416666975,
+        1197908.9791666619
+      ],
+      "share_bootstrap_model_better": 0.985
+    },
+    "assumptions": {
+      "interest_rate": 0.2,
+      "lgd": 0.6
+    },
+    "breakeven_pd": 0.25,
+    "empirical_threshold_oof": 0.29,
+    "strategies": [
+      {
+        "strategy": "Отказать всем",
+        "approval_rate": 0.0,
+        "default_rate_approved": NaN,
+        "profit": 0.0
+      },
+      {
+        "strategy": "Одобрить всех",
+        "approval_rate": 1.0,
+        "default_rate_approved": 0.221,
+        "profit": 5881211.1667
+      },
+      {
+        "strategy": "Правило: нет просрочки сейчас (pay_1 <= 0)",
+        "approval_rate": 0.7769,
+        "default_rate_approved": 0.139,
+        "profit": 17847046.1
+      },
+      {
+        "strategy": "Скоркарта, PD < порога безубыточности",
+        "approval_rate": 0.7642,
+        "default_rate_approved": 0.1293,
+        "profit": 18570207.2
+      },
+      {
+        "strategy": "LightGBM, PD < порога безубыточности",
+        "approval_rate": 0.7392,
+        "default_rate_approved": 0.1173,
+        "profit": 18466815.8
+      },
+      {
+        "strategy": "LightGBM, порог по OOF-прибыли",
+        "approval_rate": 0.7654,
+        "default_rate_approved": 0.1229,
+        "profit": 18405814.3
+      }
+    ],
+    "sensitivity": [
+      {
+        "interest_rate": 0.1,
+        "lgd": 0.4,
+        "breakeven_pd": 0.2,
+        "profit_model": 7442332.7667,
+        "profit_rule": 6971533.4333,
+        "profit_approve_all": -1656563.1167,
+        "approval_rate_model": 0.6787
+      },
+      {
+        "interest_rate": 0.1,
+        "lgd": 0.6,
+        "breakeven_pd": 0.1429,
+        "profit_model": 6062351.3,
+        "profit_rule": 3067554.2,
+        "profit_approve_all": -10850900.5167,
+        "approval_rate_model": 0.456
+      },
+      {
+        "interest_rate": 0.1,
+        "lgd": 0.8,
+        "breakeven_pd": 0.1111,
+        "profit_model": 4192660.0833,
+        "profit_rule": -836425.0333,
+        "profit_approve_all": -20045237.9167,
+        "approval_rate_model": 0.3355
+      },
+      {
+        "interest_rate": 0.15,
+        "lgd": 0.4,
+        "breakeven_pd": 0.2727,
+        "profit_model": 14832272.5417,
+        "profit_rule": 14361279.3833,
+        "profit_approve_all": 6709492.725,
+        "approval_rate_model": 0.7563
+      },
+      {
+        "interest_rate": 0.15,
+        "lgd": 0.6,
+        "breakeven_pd": 0.2,
+        "profit_model": 11163499.15,
+        "profit_rule": 10457300.15,
+        "profit_approve_all": -2484844.675,
+        "approval_rate_model": 0.6787
+      },
+      {
+        "interest_rate": 0.15,
+        "lgd": 0.8,
+        "breakeven_pd": 0.1579,
+        "profit_model": 9566397.8583,
+        "profit_rule": 6553320.9167,
+        "profit_approve_all": -11679182.075,
+        "approval_rate_model": 0.5363
+      },
+      {
+        "interest_rate": 0.2,
+        "lgd": 0.4,
+        "breakeven_pd": 0.3333,
+        "profit_model": 22289349.9667,
+        "profit_rule": 21751025.3333,
+        "profit_approve_all": 15075548.5667,
+        "approval_rate_model": 0.7909
+      },
+      {
+        "interest_rate": 0.2,
+        "lgd": 0.6,
+        "breakeven_pd": 0.25,
+        "profit_model": 18466815.8,
+        "profit_rule": 17847046.1,
+        "profit_approve_all": 5881211.1667,
+        "approval_rate_model": 0.7392
+      },
+      {
+        "interest_rate": 0.2,
+        "lgd": 0.8,
+        "breakeven_pd": 0.2,
+        "profit_model": 14884665.5333,
+        "profit_rule": 13943066.8667,
+        "profit_approve_all": -3313126.2333,
+        "approval_rate_model": 0.6787
+      },
+      {
+        "interest_rate": 0.3,
+        "lgd": 0.4,
+        "breakeven_pd": 0.4286,
+        "profit_model": 36922387.45,
+        "profit_rule": 36530517.2333,
+        "profit_approve_all": 31807660.25,
+        "approval_rate_model": 0.8528
+      },
+      {
+        "interest_rate": 0.3,
+        "lgd": 0.6,
+        "breakeven_pd": 0.3333,
+        "profit_model": 33434024.95,
+        "profit_rule": 32626538.0,
+        "profit_approve_all": 22613322.85,
+        "approval_rate_model": 0.7909
+      },
+      {
+        "interest_rate": 0.3,
+        "lgd": 0.8,
+        "breakeven_pd": 0.2727,
+        "profit_model": 29664545.0833,
+        "profit_rule": 28722558.7667,
+        "profit_approve_all": 13418985.45,
+        "approval_rate_model": 0.7563
+      }
+    ]
+  },
+  "fairness": {
+    "table": [
+      {
+        "attribute": "sex",
+        "group": "female",
+        "n": 2898,
+        "approval_rate": 0.754,
+        "approval_rate_among_good": 0.8415,
+        "default_rate_approved": 0.113,
+        "mean_pd": 0.2155,
+        "actual_default_rate": 0.2053,
+        "auc": 0.7767
+      },
+      {
+        "attribute": "sex",
+        "group": "male",
+        "n": 1898,
+        "approval_rate": 0.7165,
+        "approval_rate_among_good": 0.8311,
+        "default_rate_approved": 0.1243,
+        "mean_pd": 0.2342,
+        "actual_default_rate": 0.245,
+        "auc": 0.8082
+      },
+      {
+        "attribute": "age",
+        "group": "30-44",
+        "n": 2393,
+        "approval_rate": 0.7706,
+        "approval_rate_among_good": 0.8586,
+        "default_rate_approved": 0.1079,
+        "mean_pd": 0.2091,
+        "actual_default_rate": 0.1993,
+        "auc": 0.7884
+      },
+      {
+        "attribute": "age",
+        "group": "45+",
+        "n": 807,
+        "approval_rate": 0.6741,
+        "approval_rate_among_good": 0.7966,
+        "default_rate_approved": 0.1287,
+        "mean_pd": 0.2474,
+        "actual_default_rate": 0.2627,
+        "auc": 0.797
+      },
+      {
+        "attribute": "age",
+        "group": "<30",
+        "n": 1596,
+        "approval_rate": 0.7249,
+        "approval_rate_among_good": 0.8245,
+        "default_rate_approved": 0.1271,
+        "mean_pd": 0.2313,
+        "actual_default_rate": 0.2325,
+        "auc": 0.7855
+      }
+    ],
+    "disparate_impact": {
+      "age": 0.8747967217433144,
+      "sex": 0.9503632632688148
+    },
+    "disparate_impact_with_protected": {
+      "age": 0.8689475722078334,
+      "sex": 0.9395592090340327
+    }
+  },
+  "scorecard": {
+    "n_features": 13,
+    "features": [
+      "pay_1",
+      "n_delay_months",
+      "pay_3",
+      "pay_4",
+      "pay_5",
+      "pay_6",
+      "delay_trend",
+      "limit_bal",
+      "paid_1_to_limit",
+      "util_avg",
+      "pay_ratio_avg",
+      "bill_change",
+      "paid_to_limit"
+    ],
+    "factor": 28.85390081777927,
+    "offset": 487.1228762045055,
+    "iv_top": {
+      "pay_1": 0.876,
+      "n_delay_months": 0.826,
+      "max_delay": 0.724,
+      "pay_2": 0.508,
+      "pay_3": 0.375,
+      "pay_4": 0.347,
+      "pay_5": 0.324,
+      "pay_6": 0.282,
+      "delay_trend": 0.238,
+      "limit_bal": 0.167
+    }
+  }
+}
